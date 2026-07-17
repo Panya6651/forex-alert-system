@@ -1,7 +1,7 @@
 // ตรวจสอบและระบุที่อยู่ของ Backend API (ให้สลับใช้ localhost ถ้าเทสในเครื่อง)
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:8000'
-  : 'https://forex-alert-system-production.up.railway.app'; // จะถูกแทนที่ด้วย url จริงบน Render ภายหลัง
+: 'https://forex-alert-system-ytsn.onrender.com';
 
 let deferredPrompt;
 const btnNotify = document.getElementById('btn-notify');
