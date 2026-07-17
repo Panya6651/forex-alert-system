@@ -1,8 +1,10 @@
-MetaTrader5>=5.0.45
 pandas>=2.0.0
 numpy>=1.24.0
-python-telegram-bot>=20.7
 matplotlib>=3.7.0
 mplfinance>=0.12.10b0
 python-dotenv>=1.0.0
 requests>=2.31.0
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pywebpush>=2.2.0
+cryptography>=42.0.0
