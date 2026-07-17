@@ -1,0 +1,13 @@
+version: "3.9"
+
+# ใช้สำหรับรัน backtest เท่านั้น (ดูคำเตือนใน Dockerfile.backtest)
+# วิธีใช้: docker compose -f deploy/docker-compose.yml run backtest --csv data/EURUSD_H1.csv --symbol EURUSD
+
+services:
+  backtest:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.backtest
+    volumes:
+      - ../data:/app/data
+      - ../logs:/app/logs

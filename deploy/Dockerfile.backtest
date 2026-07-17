@@ -1,0 +1,20 @@
+# Dockerfile นี้ใช้ได้เฉพาะส่วนที่ไม่พึ่งพา MT5 เท่านั้น
+# (เช่น backtest engine, การพัฒนา/ทดสอบ mtf_analyzer, risk_manager)
+# ส่วน main.py ที่ต้องต่อ MT5 จริง "รันใน Docker/Linux ไม่ได้"
+# เพราะ MetaTrader5 python package ผูกกับ Windows terminal โดยตรง
+# ดู deploy/install_windows_service.bat สำหรับการ deploy ระบบเทรดจริง
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# ติดตั้งเฉพาะ dependency ที่จำเป็นสำหรับ backtest (ไม่รวม MetaTrader5/telegram)
+COPY requirements-backtest.txt .
+RUN pip install --no-cache-dir -r requirements-backtest.txt
+
+COPY core/ core/
+COPY backtest/ backtest/
+COPY config/ config/
+
+ENTRYPOINT ["python", "-m", "backtest.backtest_engine"]
+CMD ["--help"]

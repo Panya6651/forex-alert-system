@@ -1,0 +1,29 @@
+# ไฟล์ที่เก็บข้อมูลลับ — ห้ามอัพขึ้น GitHub เด็ดขาด
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Database (ข้อมูลส่วนตัว)
+data/
+*.db
+*.sqlite
+
+# Logs
+logs/
+*.log
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
